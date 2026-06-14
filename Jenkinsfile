@@ -1,5 +1,12 @@
 @Library('hps-shared-lib') _
 
+environment {
+    IMAGE_NAME  = "dummy-microservice"
+    IMAGE_TAG   = "${env.BUILD_NUMBER}"
+    HARBOR_URL  = "http://172.26.206.127/:8888"    // ← your real IP
+    HARBOR_PROJECT = "shared-lib-demo"
+}
+
 pipeline {
     agent any
 
@@ -47,7 +54,7 @@ pipeline {
 
         stage('Push') {
             steps {
-                pushToRegistry(IMAGE_NAME, IMAGE_TAG)
+                pushToRegistry(IMAGE_NAME, IMAGE_TAG, HARBOR_URL, HARBOR_PROJECT)
             }
         }
 
