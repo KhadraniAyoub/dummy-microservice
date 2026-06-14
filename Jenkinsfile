@@ -3,7 +3,7 @@
 environment {
     IMAGE_NAME  = "dummy-microservice"
     IMAGE_TAG   = "${env.BUILD_NUMBER}"
-    HARBOR_URL  = "172.26.206.127:8888"    // ← your real IP
+    HARBOR_URL  = "http://172.26.206.127:8888"    // ← your real IP
     HARBOR_PROJECT = "shared-lib-demo"
 }
 
